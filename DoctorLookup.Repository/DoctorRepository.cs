@@ -26,24 +26,19 @@ namespace DoctorLookup.Repository
             _doctors.Clear();
         }
 
-        /// <summary>
-        /// A Doctor is considered related when they are located in the same city, and have the same specialty
-        /// Results are then ordered by rating and then by name
-        /// </summary>
-        /// <param name="doctor"></param>
-        /// <returns></returns>
-        public List<Doctor> GetRelatedDoctors(Doctor doctor)
+        public List<Doctor> GetDoctors()
         {
-            return _doctors
-            .OrderByDescending(doc => doc.Rating)
-            .Where(doc => doc.Location.Equals(doctor.Location)
-            && doc.Specialty == doctor.Specialty)
-            .ToList();
+            return _doctors;
         }
 
-        public void InsertDoctors(List<Doctor> doctors)
+        public void InsertDoctors(IEnumerable<Doctor> doctors)
         {
             _doctors.AddRange(doctors);
+        }
+
+        IEnumerable<Doctor> IDoctoryRepository.GetDoctors()
+        {
+            return _doctors;
         }
     }
 }

@@ -9,8 +9,8 @@ namespace DoctorLookup.Repository
 {
     public interface IDoctoryRepository
     {
-        List<Doctor> GetRelatedDoctors(Doctor doctor);
-        void InsertDoctors(List<Doctor> doctors);
+        IEnumerable<Doctor> GetDoctors();
+        void InsertDoctors(IEnumerable<Doctor> doctors);
         void Clear();
     }
 }

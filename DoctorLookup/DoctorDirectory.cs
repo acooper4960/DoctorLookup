@@ -33,7 +33,11 @@ namespace DoctorLookup
         }
         public List<Doctor> FindRelatedDoctors(Doctor doctor, int num = 100)
         {
-            return _repo.GetRelatedDoctors(doctor).Take(num).ToList();
+            return _repo.GetDoctors()
+            .Where(doc => doc.Location.Equals(doctor.Location) && doc.Specialty == doctor.Specialty)
+            .OrderByDescending(doc => doc.Rating)
+            .Take(num)
+            .ToList();
         }
     }
 }
