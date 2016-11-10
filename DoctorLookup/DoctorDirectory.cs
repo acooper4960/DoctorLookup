@@ -31,6 +31,14 @@ namespace DoctorLookup
         {
             _repo.Clear();
         }
+
+        /// <summary>
+        /// A Doctor is considered related when they are located in the same city, and have the same specialty
+        /// Results are then ordered by rating and then by name
+        /// </summary>
+        /// <param name="doctor"></param>
+        /// <param name="num"></param>
+        /// <returns></returns>
         public List<Doctor> FindRelatedDoctors(Doctor doctor, int num = 100)
         {
             return _repo.GetDoctors()
