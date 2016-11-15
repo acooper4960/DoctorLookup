@@ -44,6 +44,7 @@ namespace DoctorLookup
             return _repo.GetDoctors()
             .Where(doc => doc.Location.Equals(doctor.Location) && doc.Specialty == doctor.Specialty)
             .OrderByDescending(doc => doc.Rating)
+            .ThenByDescending(doc => doc.Name)
             .Take(num)
             .ToList();
         }

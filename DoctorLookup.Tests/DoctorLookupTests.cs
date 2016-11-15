@@ -43,14 +43,14 @@ namespace DoctorLookup.Tests
             },
             new Doctor()
             {
-                Name = "Dr. Test1",
+                Name = "Dr. Test2",
                     Rating = DrRating.FiveStars,
                     Specialty = "Immunology",
                     Location = new Location() { City = "San Ramon", State = "CA", ZipCode = 94583, Country = "USA" }
                 },
                 new Doctor()
             {
-                Name = "Dr. Test2",
+                Name = "Dr. Test1",
                 Rating = DrRating.FiveStars,
                 Specialty = "Immunology",
                 Location = new Location() { City = "San Ramon", State = "CA", ZipCode = 94583, Country = "USA" }
